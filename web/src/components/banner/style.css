@@ -1,0 +1,82 @@
+.banner{
+    color: white;
+    background-image: url(./Jackson_Desktop_2_e523fb2316.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 65vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.banner .text{
+    transform: translateX(-80%);
+}
+.banner_bot_cen{
+    width: 80%;
+}
+.anticon{
+    color: black !important;
+    font-size: 16px !important;
+    margin-right: 10px;
+}
+.banner .jackson{
+    color: aliceblue;
+    font-size: 40px;
+    line-height: 40px;
+    font-style: normal;
+    font-weight: 900;
+    letter-spacing: .02em;
+    text-align: center;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+.banner__bot{
+    background-color: #e4e3e0;
+}
+.banner .unbre{
+    font-size: 16px;
+    line-height: 16px;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: .5em;
+    text-align: center;
+    margin-bottom: 24px;
+}
+.banner .des{
+    margin-bottom: 40px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: .02em;
+    text-align: center;
+    margin-bottom: 24px;
+}
+.banner a{
+    min-width: 200px;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    border: 1px solid #f8f7f4;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 14px;
+    letter-spacing: -.02em;
+    text-align: center;
+    padding: 18px 24px;
+    min-width: 160px;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    margin-top: 30px;
+}
+.banner a:hover{
+    background-color: #f8f7f4;
+}

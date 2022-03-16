@@ -1,0 +1,16 @@
+.home .title{
+    text-align: center;
+    margin-top: 100px;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: .02em;
+    padding: 0 0 28px;
+    text-transform: uppercase;
+    color: #161a21;
+    font-family: 'Montserrat', sans-serif;
+}
+.home{
+   
+    background-color: #F8F7F4;
+}
