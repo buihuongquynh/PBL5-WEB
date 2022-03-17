@@ -1,0 +1,16 @@
+/* No CSS *//*# sourceMappingURL=style.css.map */
+.cout_down{
+    width: 40%;
+}
+.cout_down b{
+    font-size: 20px;
+    background-color: rgb(255, 145, 0);
+    padding: 3px 15px;
+    color: aliceblue;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.count{
+    background-color: rgb(255, 94, 0) !important;
+    margin-left: 10px !important;
+}

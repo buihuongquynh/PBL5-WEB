@@ -1,0 +1,35 @@
+.productLookUP{
+    padding-top: 150px;
+    overflow-x: hidden;
+    margin-bottom: 100px;
+}
+.productLookUP img{
+    width: 80px;
+    height: 80px;
+}
+.productLookUP pre{
+    font-size: 25px;
+    margin-bottom: 39px;
+    font-family: sans-serif !important;
+}
+.ant-table-content{
+    transform: translateY(-16px) !important;
+}
+.info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pro .product_info_item{
+    padding: 0;
+}
+.pro .product_info{
+    padding-bottom: 20px;
+}
+.pro pre{
+    font-weight: 800 !important;
+    font-size: 20px;
+}
+.null{
+    text-align: center;
+}

@@ -1,0 +1,329 @@
+.scrolls{
+    display: flex;
+    justify-content: space-between;
+    padding: 100px 20px;
+    width: 50%;
+}
+.left {
+    width: 50%;
+}
+  .form{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+.right {
+width: 50%;
+}
+  
+.centered {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+
+h3{
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: -.02em;
+    color: #161a21;
+    margin-top: 20px;
+}
+
+input{
+    background: #f8f7f4;
+    border: 1px solid rgba(150, 152, 156, 0.15);
+    height: 50px;
+    width: 100%;
+    display: inline-block;
+    text-align: start;
+    cursor: text;
+    padding: 0px 16px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+form{
+    display: block;
+    padding-top: 23px;
+}
+
+.email_text, .name_number_text, .address_text{
+    display: flex;
+    text-align: left;
+    letter-spacing: .02em;
+    color: red;
+    top: -5px;
+    margin-bottom: 10px;
+}
+
+.name_number{
+    display: flex;
+    justify-content: space-between;
+}
+
+.number{
+    margin-left: 15px;
+}
+
+.name{
+    margin-right: 15px;
+}
+
+.shipping{
+    padding: 25px 0 36px;
+}
+
+.shipping_text{
+    letter-spacing: .02em;
+    color: #161a21;
+    font-weight: 500;
+    margin: 0;
+}
+
+.shipping span{
+    font-weight: 700;
+    color: #58c772;
+}
+
+.next_button{
+    cursor: pointer;
+    padding: 22px 0;
+    width: 70%;
+    background: #53c66e;
+    border-radius: 7px;
+    height: 58px;
+    border: none;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    margin-top: 30px;
+    color: #f8f7f4;
+    text-align: center;
+}
+
+.icon{
+    width: 12px;
+    height: 6px;
+    color: #fff;
+    margin: 0 0 0 8px;
+    top: -2px;
+    position: relative;
+}
+
+.note{
+    text-align: center;
+    letter-spacing: .02em;
+    color: #161a21;
+    padding: 24px 16px 60px;
+    margin: 0;
+}
+
+
+.order_header{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #8a8a84;
+    padding: 15px 0 28px;
+}
+
+.order_header p{
+    font-weight: 700;
+    letter-spacing: -.02em;
+    color: #161a21;
+    margin: 0;
+}
+
+.order_header span{
+    font-style: italic;
+    font-weight: 400;
+    display: flex;
+    text-align: right;
+    letter-spacing: .02em;
+    text-decoration-line: underline;
+    color: #161a21a8;
+}
+
+.product_info{
+    padding: 10px 0 35px;
+}
+
+.product_info_item{
+    display: flex;
+    padding: 32px 0 0;
+    position: relative;
+}
+
+.product_img{
+    overflow: hidden; 
+    box-sizing: border-box; 
+    display: inline-block; 
+    position: relative; 
+    width: 64px; 
+    height: 64px;
+}
+
+.product_img img{
+    position: absolute;
+    inset: 0px;
+    box-sizing: border-box;
+    padding: 0px;
+    margin: auto;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.product_detail{
+    padding: 0 0 0 20px;
+    margin: auto 0;
+}
+
+.product_name{
+    padding: 0;
+    margin: 0;
+    letter-spacing: .02em;
+    color: #161a21;
+}
+
+.product_subName{
+    font-family: "Copperplate Gothic Light" !important;
+    text-align: left;
+    font-style: normal;
+    font-weight: lighter;
+    color: #161a21;
+    padding: 10px 0 12px;
+    margin: 0;
+}
+
+.product_quantity{
+    text-align: left;
+    margin: 0px;
+    font-weight: 500;
+    letter-spacing: .02em;
+}
+
+.product_price{
+    margin: auto 0 auto auto;
+}
+
+.product_price_discount{
+    font-weight: 500;
+    text-align: right;
+    letter-spacing: .02em;
+    padding: 0 0 10px;
+    margin: 0;
+    color: #161a21;
+}
+
+.product_price_original{
+    text-align: right;
+    letter-spacing: .02em;
+    text-decoration-line: line-through;
+    padding: 0;
+    margin: 0;
+    color: #161a21;
+    opacity: .6;
+}
+
+.coupon_code{
+    background: #f8f7f4;
+    border: 1px solid rgba(122, 124, 129, 0.15);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr;
+    justify-content: center;
+    padding: 0;
+    height: 50px;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+.coupon_code_input{
+    font-weight: 500;
+    letter-spacing: .02em;
+    text-align: center;
+    border: none;
+    background: #f8f7f4;
+    margin: 0px;
+}
+
+.coupon_code_button{
+    cursor: pointer;
+    border: none;
+    border-left: 1px solid rgba(115, 116, 117, 0.15);
+    background: #ecebea;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    text-align: center;
+    padding-left: 26px;
+    padding-right: 26px;
+    color: #000;
+}
+
+.coupon{
+    display: block;
+    padding: 28px 0;
+    border-top: 1px solid #808078;
+    border-bottom: 1px solid #d6d6d4;
+}
+
+.order_sum{
+    padding: 32px 0;
+    border-bottom: 1px solid #d6d6d4;
+}
+
+.order_sum div{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 20px;
+}
+
+.order_sum_text, .order_sum_text1{
+    letter-spacing: .02em;
+    color: #000;
+}
+
+.order_sum_price{
+    font-weight: 700;
+    letter-spacing: -.02em;
+    color: #161a21;
+}
+
+.discount .order_sum_price{
+    color: red;
+}
+
+.order_total{
+    padding: 37px 0;
+}
+
+.order_total_price{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 16px;
+}
+.pay{
+    display: flex;
+    padding-top: 100px;
+}
+.order_total_pay{
+    display: flex;
+    justify-content: space-between;
+}
+
+.order_total_pay p{
+    margin: 0;
+    color: rgba(0,0,0,.6);
+}
+
+.order_total_pay .order_sum_text1{
+    text-align: right;
+    color: rgba(22,26,33,.6);
+}
+
+.order_total_pay span{
+    color: #73c4f7;
+}

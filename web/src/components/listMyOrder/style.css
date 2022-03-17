@@ -1,0 +1,22 @@
+.notifi{
+    width: 400px;
+    margin-bottom: 300px;
+    background-color: #f8f7f4;
+}
+.notifi .payment{
+    background: #53c66e;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: -.02em;
+    color: #f8f7f4;
+    border: none;
+    padding: 22px 0;
+    transition: .3s ease-out;
+    cursor: pointer;
+    width: 80%;
+}
+.notifi .payment:hover{
+    opacity: 0.7;
+}

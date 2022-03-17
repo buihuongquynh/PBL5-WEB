@@ -1,0 +1,88 @@
+.Detail{
+padding: 180px 100px;
+background-color: #EEEEEB;
+font-family: inherit;
+}
+.Detail .detail__center{
+    display: flex;
+    align-items: center;
+}
+.Detail .left{
+    margin-right: 20px;
+}
+.Detail .card{
+    background-color: white;
+    text-align: center;
+    padding: 50px 0;
+    height: 100%;
+
+}
+.Detail .price{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Detail .order{
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 0;
+}
+.Detail .old{
+    color: #555;
+}
+.Detail .card .colo{
+    font-family: CopperplateGothic;
+    font-weight: lighter;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+    color: #161a21;
+    opacity: .6;
+    padding: 0;
+    margin: 0;
+    text-transform: uppercase;
+}
+.Detail .name{
+    font-size: 32px;
+    line-height: 32px;
+    padding: 12px 0 24px;
+    letter-spacing: .02em;
+    color: #161a21;
+    margin: 0;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+.Detail .payment{
+    background: #53c66e;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: -.02em;
+    color: #f8f7f4;
+    border: none;
+    padding: 22px 0;
+    transition: .3s ease-out;
+    cursor: pointer;
+    width: 80%;
+}
+.Detail .payment:hover{
+    opacity: 0.7;
+}
+.Detail .ADD__CART{
+    font-weight: 700;
+    border: 1px solid rgb(122, 119, 119);
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: -.02em;
+    color: black;
+    padding: 22px 0;
+    transition: .3s ease-out;
+    cursor: pointer;
+    width: 80%;
+}
+.Detail .ADD__CART:hover{
+    background-color: #161a21;
+    color: #EEEEEB;
+}
