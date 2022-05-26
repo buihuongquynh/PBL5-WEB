@@ -5,7 +5,8 @@ import Home from "./Page/Home";
 import Payment from "./Page/payment";
 import Detail from "./Page/Detail";
 import AllProduct from "./Page/AllProduct"
-import ProductLookUp from "./Page/ProductLookUp"
+import ProductLookUp from "./Page/ProductLookUp";
+import Login from "./Page/Auth";
 import "react-toastify/dist/ReactToastify.css";
 import "antd/dist/antd.css";
 import "./App.css";
@@ -28,11 +29,12 @@ function App() {
         pauseOnHover
         style={{ zIndex: "999999" }}
       />
-      <Router basename="/">
+      <Router basename="/login">
         <Header />
         <div className="content">
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route path="/login" component={Login} />
             <Route path="/detail/:id" exact component={Detail} />
             <Route path="/payment/:id" exact component={Payment} />
             <Route path="/allProduct" exact component={AllProduct} />
