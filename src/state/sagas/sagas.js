@@ -9,7 +9,7 @@ import {
   addInfoSuccess
 } from "../actions";
 import { ToastContainer, toast } from 'react-toastify';
-
+import loginSaga from './loginSaga';
 import TableService from "../../services/table.services";
 function* fetchMan() {
   try {
@@ -115,5 +115,8 @@ function* mySaga() {
 }
 
 export default function* rootSaga() {
-  yield all([mySaga()]);
+  yield all([
+    mySaga(),
+    loginSaga(),
+    ]);
 }

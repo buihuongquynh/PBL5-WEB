@@ -12,6 +12,13 @@ const actions = {
     GET_INFO_SUCCESS: "GET_INFO_SUCCESS",
     ADD_INFO: "ADD_INFO",
     ADD_INFO_SUCCESS: "ADD_INFO_SUCCESS",
+
+
+    //login
+    USER_LOGIN:'USER_LOGIN',
+    USER_LOGIN_SUCCESS:'USER_LOGIN_SUCCESS',
+    USER_LOGOUT:'USER_LOGOUT',
+    USER_SIGNUP:'USER_SIGNUP',
   };
   export default actions;
   
