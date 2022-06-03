@@ -1,13 +1,24 @@
 import axiosClient from './config.services';
-
 class UserService {
-  static login(obj) {
-    const url = `/login`;
-    return axiosClient.post(url, { ...obj });
+  static list() {
+    const url = 'user';
+    return axiosClient.get(url);
   }
-  static signup(obj) {
-    const url = `/register`;
-    return axiosClient.post(url, { ...obj });
+  static detail(id) {
+    const url = `user/${id}`;
+    return axiosClient.get(url);
+  }
+  static add(data) {
+    const url = `user`;
+    return axiosClient.post(url, {...data});
+  }
+  static delete(id) {
+    const url = `user/${id}`;
+    return axiosClient.delete(url);
+  }
+  static edit(id, data) {
+    const url = `user/${id}`;
+    return axiosClient.put(url, {...data});
   }
 }
 export default UserService;

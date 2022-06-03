@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
 import { userLogin } from "../../state/actions";
 import "./Login.css";
+import MainUser from "../../components/layout/MainUser"
 
 function Login() {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ function Login() {
     dispatch(userLogin(user));
   };
   return (
-    <div>
+    <MainUser>
       <div className="box">
         <h1>Đăng nhập để sử dụng</h1>
         <div className="">
@@ -41,7 +42,7 @@ function Login() {
           </div>
         </div>
       </div>
-    </div>
+    </MainUser>
   );
 }
 

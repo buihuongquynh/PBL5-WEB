@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getMan } from "../../state/actions";
+import MainUser from "../../components/layout/MainUser"
 import Item from "../../components/item";
 import {
   Input,
@@ -23,6 +24,7 @@ function Home() {
     setDataTable(result);
   };
   return (
+    <MainUser>
     dataTable? (
     <div className="allWrap">
       <div className="search">
@@ -60,6 +62,7 @@ function Home() {
           <Spin />
         </div>)
     )
+    </MainUser>
   );
 }
 export default Home;

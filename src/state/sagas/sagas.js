@@ -10,6 +10,11 @@ import {
 } from "../actions";
 import { ToastContainer, toast } from 'react-toastify';
 import loginSaga from './loginSaga';
+import brandSaga from './brand.saga'
+import orderSaga from './order.saga'
+import productSaga from './product.saga'
+import cartSaga from './cart.saga'
+import userSaga from './user.saga'
 import TableService from "../../services/table.services";
 function* fetchMan() {
   try {
@@ -118,5 +123,10 @@ export default function* rootSaga() {
   yield all([
     mySaga(),
     loginSaga(),
+    brandSaga(),
+    cartSaga(),
+    orderSaga(),
+    productSaga(),
+    userSaga()
     ]);
 }

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getMan } from "../../state/actions";
 import { Form, Input, Button, Checkbox } from "antd";
 import ProductInfo from "./product-info";
+import MainUser from "../../components/layout/MainUser"
 import { useParams } from "react-router-dom";
 import { getDetail, getOrder, AddInfo } from "../../state/actions";
 import { useHistory } from "react-router-dom";
@@ -46,6 +47,7 @@ function Home() {
   };
   let total = 0;
   return (
+    <MainUser>
     <div className="pay">
       <div className="scrolls">
         <div className="centered">
@@ -213,6 +215,7 @@ function Home() {
         </div>
       </div>
     </div>
+    </MainUser>
   );
 }
 export default Home;

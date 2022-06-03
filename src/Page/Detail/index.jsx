@@ -4,6 +4,7 @@ import "./style.css";
 import { getDetail } from '../../state/actions';
 import { useParams } from "react-router-dom";
 import { addCart } from "../../state/actions";
+import MainUser from "../../components/layout/MainUser"
 import "./style.css";
 import { useHistory } from "react-router-dom";
 function Detail() {
@@ -18,6 +19,7 @@ const handleAddcart =()=>{
   dispatch(addCart(dataDetail));
 }
   return (
+    <MainUser>
     <div className="Detail">
       <div className="row">
         <div className="col-md-2"></div>
@@ -56,6 +58,7 @@ const handleAddcart =()=>{
       </div>
       <div></div>
     </div>
+    </MainUser>
   );
 }
 export default Detail;

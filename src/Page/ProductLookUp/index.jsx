@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import Item from "../../components/item";
 import ProductInfo from "./product-info"
 import { Table, Tag, Spin } from 'antd';
+import MainUser from "../../components/layout/MainUser"
 
 function Look() {
   const param = useParams();

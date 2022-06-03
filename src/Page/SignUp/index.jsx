@@ -6,6 +6,7 @@ import { useHistory, Link } from "react-router-dom";
 import "./Signup.css";
 import { fromPairs } from "lodash";
 import { DatePicker, Space } from "antd";
+import MainUser from "../../components/layout/MainUser"
 
 function SignUp() {
   const dispatch = useDispatch();
