@@ -17,13 +17,14 @@
   width: 100%;
 }
 .search{
-    width: 22%;
-    float: right;
-    height: 20px;
+   
 }
 .ant-input{
     border: 1px solid rgb(190, 189, 189) !important;
 }
 .ant-input::placeholder{
     color: #999 !important;
+}
+.ant-select-arrow{
+  right: 20px !important;
 }

@@ -12,7 +12,7 @@ const Item = ({ data }) => {
     <div className="item-notifi">
       <div className="group__left">
         <div className="avt">
-          <img src={data.img} alt="" />
+          <img src={data.image} alt="" />
         </div>
         <div className="text">
           <div

@@ -17,7 +17,7 @@ const Item = ({ record }) => {
     <div className="item">
       <div className="item__center">
         <img
-          src={record.img}
+          src={record.image}
           onClick={() => {
             history.push({ pathname: `/detail/${record.id}` });
           }}

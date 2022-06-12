@@ -3,9 +3,9 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import { toastSuccess } from '../../Helper/toastHelper';
 import UserService from '../../services/user.service';
 import { Actions, getUserSuccess } from '../actions';
-function* fetch() {
+function* fetch(action) {
   try {
-    const data = yield call(UserService.list);
+    const data = yield call(UserService.list, action.payload);
     yield put(getUserSuccess(data));
   } catch (e) {
     console.log('get user error')

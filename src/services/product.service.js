@@ -1,8 +1,9 @@
 import axiosClient from './config.services';
+import queryString from 'query-string';
 class ProductService {
-  static list() {
+  static list(data) {
     const url = 'product';
-    return axiosClient.get(url);
+    return axiosClient.get(url+"?" + queryString.stringify(data));
   }
   static detail(id) {
     const url = `product/${id}`;

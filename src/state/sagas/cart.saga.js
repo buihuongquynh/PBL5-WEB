@@ -3,9 +3,9 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import { toastSuccess } from '../../Helper/toastHelper';
 import CartService from '../../services/cart.service';
 import { Actions, getCartSuccess } from '../actions';
-function* fetch() {
+function* fetch(action) {
   try {
-    const data = yield call(CartService.list);
+    const data = yield call(CartService.list, action.payload);
     yield put(getCartSuccess(data));
   } catch (e) {
     console.log('get cart error')

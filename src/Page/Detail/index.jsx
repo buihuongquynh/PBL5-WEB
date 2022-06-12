@@ -18,6 +18,7 @@ function Detail() {
 const handleAddcart =()=>{
   dispatch(addCart(dataDetail));
 }
+console.log(dataDetail,"data")
   return (
     <MainUser>
     <div className="Detail">
@@ -25,24 +26,22 @@ const handleAddcart =()=>{
         <div className="col-md-2"></div>
         <div className="col-md-4">
           <img
-            src={dataDetail ? dataDetail.img : null}
+            src={dataDetail ? dataDetail.image : null}
             alt=""
           />
         </div>
         <div className="col-md-4">
           <div className="card">
-            <p className="colo">{dataDetail ? dataDetail.trademark : null}</p>
             <div className="name">{dataDetail? dataDetail.name: null}</div>
             <div className="price mb-4">
-              <p className="order">{dataDetail ? dataDetail.price: null}</p>
+              <p className="order">Price: {dataDetail ? dataDetail.price: null}$</p>
               <strike letter className="old ml-1">
                 {dataDetail? dataDetail.oldPrice: null}
               </strike>
             </div>
-            <div className="status">
-              tình trạng: <span style={{color:"rgb(59, 177, 0)"}} className="st">{dataDetail ?dataDetail.status : null}</span> 
-            </div>
-            <p><span style={{color:"red"}}>GIẢM 20%</span> CHO VÒNG TAY MUA KÈM:</p>
+            <p><span style={{color:"red"}}>GIẢM {dataDetail?.discount}%</span> CHO VÒNG TAY MUA KÈM:</p>
+            <p>Size: {dataDetail?.size}</p>
+            <p>Thương hiệu: {dataDetail?.brand_name}</p>
             <div className="group__button mt-10">
               <button
                onClick={() => {

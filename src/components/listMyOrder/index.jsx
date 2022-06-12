@@ -4,14 +4,16 @@ import "./style.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 
-import { getOrder } from "../../state/actions";
+import { getCart, getOrder } from "../../state/actions";
 import Item from "./item"
 const Notificaticon = () => {
     const history = useHistory();
     const dispatch = useDispatch();
-    const dataOrder = useSelector((state) => state.getOrder.data);
+    const dataOrder = useSelector((state) => state.cart.data);
     useEffect(() => {
-        dispatch(getOrder());
+        dispatch(getCart({
+            userId: "5"
+        }));
     }, [])
     let total = 0
     return (

@@ -9,7 +9,9 @@ import ProductLookUp from "./Page/ProductLookUp";
 import Login from "./Page/Login";
 import SignUp from "./Page/SignUp";
 import HomeAdmin from "./Page/HomeAdmin";
-import Tables from "./Page/Tables";
+import Tables from "./Page/Users";
+import Products from "./Page/Products";
+import Brands from "./Page/Brands";
 import Billing from "./Page/Billing";
 import Rtl from "./Page/Rtl";
 import Profile from "./Page/Profile";
@@ -57,7 +59,10 @@ function App() {
             <Route path="/sign-in" exact component={SignInAdmin} />
             {/* </MainUser> */}
               <Route exact path="/dashboard" component={HomeAdmin} />
-              <Route exact path="/tables" component={Tables} />
+              <Route exact path="/users" component={Tables} />
+              <Route exact path="/products" component={Products} />
+              <Route exact path="/brands" component={Brands} />
+
               <Route exact path="/billing" component={Billing} />
               <Route exact path="/rtl" component={Rtl} />
               <Route exact path="/profile" component={Profile} />

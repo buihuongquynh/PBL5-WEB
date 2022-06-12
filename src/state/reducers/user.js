@@ -1,7 +1,7 @@
 
 import { Actions } from '../actions';
 const initialState = {
-  data: null
+  data: null,
 };
 const currency = (state = initialState, action) => {
     console.log(initialState)

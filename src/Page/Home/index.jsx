@@ -8,16 +8,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProduct } from "../../state/actions";
 import { Table, Tag, Spin } from "antd";
 import MainUser from "../../components/layout/MainUser";
-
 function Home() {
-  const dispatch = useDispatch();
-  const listProductMan = useSelector((state) => state.product.data);
-  useEffect(() => {
-    dispatch(getProduct());
-  }, []);
   return(
   <MainUser>
-    {listProductMan ? (
       <div className="home">
         <Banner />
         <h1 className="title">MEN'S BEST SELLERS</h1>
@@ -32,7 +25,7 @@ function Home() {
             alt=""
           />
         </a>
-        <ListItemMan listProductMan={listProductMan} />
+        <ListItemMan/>
         <h1 className="title">WOMEN'S BEST SELLERS</h1>
         <a
           href="/allProduct"
@@ -45,23 +38,9 @@ function Home() {
             alt=""
           />
         </a>
-        <ListItemWomen listProductWoman={listProductMan} />
+        <ListItemWomen />
       </div>
-    ) : (
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          width: "100%",
-          height: "100%",
-          paddingTop: "200px",
-        }}
-        className="spin"
-      >
-        <Spin />
-      </div>
-    )}
+    
   </MainUser>)
 }
 export default Home;
