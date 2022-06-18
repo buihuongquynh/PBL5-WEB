@@ -43,44 +43,6 @@ function* fetchOrder(action) {
     yield put({ type: "USER_FETCH_FAILED", message: e.message });
   }
 }
-function* addCart(action) {
-  try {
-    const order = yield call(TableService.addCart, action.payload);
-    yield put(addCartSuccess(order));
-    const list = yield call(TableService.listOrder, action.payload);
-    yield put(getOrderSuccess(list));
-    toast.success('success !!!', {
-      position: 'top-center',
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  } catch (e) {
-    yield put({ type: "USER_FETCH_FAILED", message: e.message });
-  }
-}
-function* deleteCart(action) {
-  try {
-    toast.success('delete success !!!', {
-      position: 'top-center',
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-    yield call(TableService.deleteCart, action.payload);
-    const list = yield call(TableService.listOrder, action.payload);
-    yield put(getOrderSuccess(list));
-   
-  } catch (e) {
-    yield put({ type: "USER_FETCH_FAILED", message: e.message });
-  }
-}
 function* fetchInfo() {
   try {
     const info = yield call(TableService.listInfo);
@@ -100,10 +62,7 @@ function* addInfo(action) {
       draggable: true,
       progress: undefined,
     });
-    yield call(TableService.addInfo, action.payload);
-    const list = yield call(TableService.listOrder, action.payload);
-    yield put(getInfoSuccess(list));
-  
+    yield call(TableService.addInfo, action.payload);  
   } catch (e) {
     yield put({ type: "USER_FETCH_FAILED", message: e.message });
   }
@@ -112,11 +71,8 @@ function* mySaga() {
   yield takeLatest(Actions.GET_DATA_MAN, fetchMan);
   yield takeLatest(Actions.GET_DELTAI, fetchDetail);
   yield takeLatest(Actions.GET_ORDER, fetchOrder);
-  yield takeLatest(Actions.ADD_CART, addCart);
-  yield takeLatest(Actions.DELETE_CART, deleteCart);
   yield takeLatest(Actions.GET_INFO, fetchInfo);
   yield takeLatest(Actions.ADD_INFO, addInfo);
-
 }
 
 export default function* rootSaga() {

@@ -10,11 +10,11 @@ function Home({ data, dataOrder }) {
     setCount(count+1)
     const dataNew = {
       id: Math.floor(Math.random() * (100000 - 100)) + 100,
-      img: data.img,
+      image: data.image,
       name: data.name,
-      oldPrice: data.oldPrice,
-      price: data.price,
-      trademark: data.trademark,
+      material: data.material,
+      category: data.category,
+      discount: data.discount,
     };
     dataOrder.push(dataNew)
 
@@ -35,16 +35,17 @@ function Home({ data, dataOrder }) {
     <div className="product_info">
       <div className="product_info_item">
         <div className="product_img">
-          <img src={data.img} />
+          <img src={data?.image} />
         </div>
         <div className="product_detail">
-          <p className="product_name">{data.name}</p>
-          <p className="product_subName">{data.trademark}</p>
+          <p className="product_name">{data?.name}</p>
+          <p className="product_price_discount">{data?.material}</p>
+
         </div>
 
         <div className="product_price">
-          <p className="product_price_discount">{data.price}</p>
-          <p className="product_price_original">{data.oldPrice}</p>
+        <p className="product_price_discount">{data?.price}</p>
+          <p className="product_subName product_price_original">{data?.discount}%</p>
         </div>
         <div className="cout_down">
           <b onClick={addItem} className="mr-2">

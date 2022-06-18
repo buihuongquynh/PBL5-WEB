@@ -1,104 +1,66 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
-import "./style.css";
-import { useDispatch, useSelector } from "react-redux";
-import { getMan, getInfo } from "../../state/actions";
-import { useParams } from "react-router-dom";
-import Item from "../../components/item";
-import ProductInfo from "./product-info"
-import { Table, Tag, Spin } from 'antd';
-import MainUser from "../../components/layout/MainUser"
+import { Avatar, List, Space } from "antd";
+import { StarOutlined, LikeOutlined, MessageOutlined } from "@ant-design/icons";
+import MainUser from "../../components/layout/MainUser";
+import React, { useState, useEffect } from "react";
+import './style.css'
+const data = Array.from({
+  length: 23,
+}).map((_, i) => ({
+  href: "https://ant.design",
+  title: `ant design part ${i}`,
+  avatar: "https://joeschmoe.io/api/v1/random",
+  description:
+    "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+  content:
+    "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.",
+}));
 
-function Look() {
-  const param = useParams();
-  const dispatch = useDispatch();
-  const listInfo = useSelector((state) => state.getInfo.data);
-  const [dataIf, setDataIf] = useState(null);
-  useEffect(() => {
-    dispatch(getInfo());
-  }, [dispatch]);
-  const result = listInfo && listInfo.filter((item) => item.phone_number.includes(param.id));
-  const columns = [
-    {
-      title: 'img',
-      dataIndex: 'img',
-      key: 'img',
-      render: text => <img src={text} alt="" />,
-    },
-    {
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
-      render: text => <a>{text}</a>,
-    },
-    {
-      title: 'giá tiền',
-      dataIndex: 'price',
-      key: 'price',
-    },
-    {
-      title: 'Trạng thái',
-      key: 'tags',
-      dataIndex: 'tags',
-      render: tags => (
-        <>
-          <Tag color="green">
-            Đang giao
-          </Tag>
+const IconText = ({ icon, text }) => (
+  <Space>
+    {React.createElement(icon)}
+    {text}
+  </Space>
+);
 
-        </>
-      ),
-    },
-  ];
-  console.log(result && result[0], "result && result[0]")
+const App = () => {
+  useEffect(() => {}, []);
   return (
-    result ? (
+    <MainUser>
       <div className="productLookUP">
-        {
-          result.length > 0 ?
-            <div className="row">
-              <div className="col-md-6">
-                <div className="info">
-                  <div className="if__center">
-                    <pre>Họ tên:      {result && result[0].fullname}</pre>
-                    <pre>Email:       {result && result[0].email}</pre>
-                    <pre>Địa chỉ:     {result && result[0].address}</pre>
-                    <pre>SDT:         {result && result[0].phone_number}</pre>
-                  </div>
-
-                </div>
-              </div>
-              <div className="col-md-5">
-                <div className="pro">
-                  <Table
-                    pagination={false}
-                    columns={columns}
-                    dataSource={result && result[0].id_product} />
-                </div>
-              </div>
-            </div>
-            :
-            <div className="productLookUP">
-              <div className="null">không có user nào khớp với số điện thoại</div>
-            </div>
-        }
-
-      </div>)
-      : (
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "100%",
-            height: "100%",
-            paddingTop:'200px'
-          }}
-          className="spin"
-        >
-          <Spin />
-        </div>)
-
+      <List
+        itemLayout="vertical"
+        size="large"
+        pagination={{
+          onChange: (page) => {
+            console.log(page);
+          },
+          pageSize: 3,
+        }}
+        dataSource={data}
+        renderItem={(item) => (
+          <List.Item
+            key={item.title}
+            extra={
+              <img
+                width={272}
+                alt="logo"
+                src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
+              />
+            }
+          >
+            <List.Item.Meta
+              avatar={<Avatar src={item.avatar} />}
+              title={<a href={item.href}>{item.title}</a>}
+              description={item.description}
+            />
+            {item.content}
+          </List.Item>
+        )}
+      />
+      </div>
+      
+    </MainUser>
   );
-}
-export default Look;
+};
+
+export default App;

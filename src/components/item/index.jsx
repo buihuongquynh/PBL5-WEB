@@ -10,8 +10,14 @@ import { addCart } from "../../state/actions";
 const Item = ({ record }) => {
   const history = useHistory();
   const dispatch = useDispatch();
+  console.log(record,"record")
+  const userDetais = JSON.parse(localStorage.getItem("info"));
   const handleAddCart = () => {
-    dispatch(addCart(record));
+    const data = {
+      user_id: userDetais.id,
+      product_id: record.id
+    }
+    dispatch(addCart(data));
   };
   return (
     <div className="item">

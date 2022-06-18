@@ -3,6 +3,7 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import { toastSuccess } from '../../Helper/toastHelper';
 import CartService from '../../services/cart.service';
 import { Actions, getCartSuccess } from '../actions';
+var info = localStorage.getItem('info')
 function* fetch(action) {
   try {
     const data = yield call(CartService.list, action.payload);
@@ -14,7 +15,7 @@ function* fetch(action) {
 function* Add(action) {
   try {
   yield call(CartService.add, action.payload);
-  const data = yield call(CartService.list);
+  const data = yield call(CartService.list,{userId: action.payload.user_id });
   yield put(getCartSuccess(data));
   yield toastSuccess('thêm mới thành công');
   } catch (e) {
@@ -32,11 +33,12 @@ function* Edit(action) {
   }
 }
 function* Delete(action) {
+  console.log(action.payload,"payoad")
   try {
-  yield call(CartService.delete, action.payload);
-  const data = yield call(CartService.list);
-  yield put(getCartSuccess(data));
+  yield call(CartService.delete, action.payload.cart_id);
   yield toastSuccess('xóa thành công');
+  const data = yield call(CartService.list, action.payload);
+  yield put(getCartSuccess(data));
   } catch (e) {
     console.log("xóa thất bại")
   }

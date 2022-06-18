@@ -2,11 +2,17 @@ import React from "react";
 import "./style.css";
 import {CloseOutlined} from '@ant-design/icons';
 import { useDispatch, useSelector } from "react-redux";
-import { deleteCart } from "../../../state/actions";
+import { deleteCart, getCart } from "../../../state/actions";
 const Item = ({ data }) => {
+console.log(data,"data")
   const dispatch = useDispatch();
   const handleDelete =()=>{
-    dispatch(deleteCart(data.id))
+    dispatch(deleteCart(
+      {
+        cart_id: data.cart_id,
+        userId: data.user_id
+      }
+))
   }
   return (
     <div className="item-notifi">

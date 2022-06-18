@@ -7,19 +7,21 @@ import { Form, Input, Button, Checkbox } from "antd";
 import ProductInfo from "./product-info";
 import MainUser from "../../components/layout/MainUser"
 import { useParams } from "react-router-dom";
-import { getDetail, getOrder, AddInfo } from "../../state/actions";
+import { getDetail, getCart, AddInfo } from "../../state/actions";
 import { useHistory } from "react-router-dom";
 function Home() {
   const dispatch = useDispatch();
   const param = useParams();
   const history = useHistory();
-
+  const userDetais = JSON.parse(localStorage.getItem("info"));
   let dataOrder = [];
-  const dataCart = useSelector((state) => state.getOrder.data);
+  const dataCart = useSelector((state) => state.cart.data);
   const dataDetail = useSelector((state) => state.getDetail.data);
   useEffect(() => {
     dispatch(getDetail(param.id));
-    dispatch(getOrder());
+    dispatch(getCart({
+      userId: userDetais?.id
+  }));
   }, []);
   if (param.id === "listProductInCart") {
     dataOrder = dataCart;
@@ -51,12 +53,6 @@ function Home() {
     <div className="pay">
       <div className="scrolls">
         <div className="centered">
-          <a className="logo">
-            <img
-              src="https://curnonwatch.com/_next/static/image/assets/images/icons/logo.25d9bce7b5bbc8c0786175f169af2c42.svg"
-              alt="logo"
-            />
-          </a>
           <div className="customer_info">
             <h3>THÔNG TIN KHÁCH HÀNG</h3>
             {/* form */}
@@ -164,9 +160,8 @@ function Home() {
             </div>
             <div className="order_body">
               {dataOrder &&
-                dataOrder.map((data) => {
-                  total = total + parseFloat(data.price);
-
+                dataOrder?.map((data) => {
+                  total = total + parseFloat(data?.price);
                   return <ProductInfo data={data} dataOrder={dataOrder} />;
                 })}
               <div className="coupon">

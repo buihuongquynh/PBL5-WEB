@@ -54,7 +54,7 @@ function App() {
             <Route path="/detail/:id" exact component={Detail} />
             <Route path="/payment/:id" exact component={Payment} />
             <Route path="/allProduct" exact component={AllProduct} />
-            <Route path="/productLookup/:id" exact component={ProductLookUp} />
+            <Route path="/productLookup" exact component={ProductLookUp} />
             <Route path="/sign-up" exact component={SignUpAdmin} />
             <Route path="/sign-in" exact component={SignInAdmin} />
             {/* </MainUser> */}

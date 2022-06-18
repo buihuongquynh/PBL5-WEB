@@ -10,9 +10,10 @@ const Notificaticon = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const dataOrder = useSelector((state) => state.cart.data);
+  const userDetais = JSON.parse(localStorage.getItem("info"));
     useEffect(() => {
         dispatch(getCart({
-            userId: "5"
+            userId: userDetais?.id
         }));
     }, [])
     let total = 0
