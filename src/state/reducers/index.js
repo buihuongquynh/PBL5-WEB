@@ -6,6 +6,7 @@ import addCart from "./addCart"
 import loginReducer from './login';
 import info from "./info";
 import brand from "./brand"
+import comment from "./comment"
 import order from "./order"
 import product from "./product";
 import user from "./user"
@@ -22,7 +23,8 @@ const rootReducer = combineReducers({
   order: order,
   cart: cart,
   user: user,
-  product: product
+  product: product,
+  comment: comment
 
 });
 export default rootReducer;

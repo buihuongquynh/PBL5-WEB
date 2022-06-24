@@ -15,6 +15,7 @@ import orderSaga from './order.saga'
 import productSaga from './product.saga'
 import cartSaga from './cart.saga'
 import userSaga from './user.saga'
+import commentSaga from "./comment.saga";
 import TableService from "../../services/table.services";
 function* fetchMan() {
   try {
@@ -83,6 +84,7 @@ export default function* rootSaga() {
     cartSaga(),
     orderSaga(),
     productSaga(),
-    userSaga()
+    userSaga(),
+    commentSaga()
     ]);
 }

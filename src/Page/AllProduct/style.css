@@ -10,17 +10,10 @@
 }
 .allWrap h1 {
   text-align: center;
-
   font-size: 30px;
   font-weight: 900;
   margin-bottom: 100px;
   width: 100%;
-}
-.search{
-   
-}
-.ant-input{
-    border: 1px solid rgb(190, 189, 189) !important;
 }
 .ant-input::placeholder{
     color: #999 !important;

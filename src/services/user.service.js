@@ -17,8 +17,8 @@ class UserService {
     const url = `user/${id}`;
     return axiosClient.delete(url);
   }
-  static edit(id, data) {
-    const url = `user/${id}`;
+  static edit(data) {
+    const url = `user/${data.id}`;
     return axiosClient.put(url, {...data});
   }
 }

@@ -14,8 +14,10 @@ import {
   Typography,
 } from "antd";
 import { ToTopOutlined } from "@ant-design/icons";
+import PostProduct from "./PostProduct";
 import React, { useEffect, useState } from "react";
 import Main from "../components/layout/Main";
+import { Redirect, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getProduct, deleteProduct } from "../state/actions";
 const { Title } = Typography;
@@ -66,6 +68,16 @@ const project = [
 function Products() {
   var dataproject = [];
   const dispatch = useDispatch();
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
   const products = useSelector((state) => state.product.data);
   const confirm = (id) => {
     dispatch(deleteProduct(id));
@@ -159,23 +171,33 @@ function Products() {
           >
             <a className="mr-5">{deletebtn}</a>
           </Popconfirm>
-          <a type="link" className="darkbtn">
-            {pencil}
-          </a>
+          <Link className="darkbtn" to="/edit-product" onClick={() =>handleEdit(element)}> {pencil}</Link>
         </div>
       ),
     });
   });
 
-  const handleEdit = (id) => {
-    console.log(id);
-  };
+  const handleEdit = (element)=>{
+    localStorage.setItem("productEdit",JSON.stringify(element))
+  }
   useEffect(() => {
     dispatch(getProduct());
   }, []);
   return (
     <Main>
       <div className="tabled">
+      <div className="flex items-center justify-end mb-5">
+          <Button onClick={() => showModal()}>Add New</Button>
+        </div>
+        <Modal
+          title="Add New"
+          footer={false}
+          visible={isModalVisible}
+          onOk={handleOk}
+          onCancel={handleCancel}
+        >
+          <PostProduct setIsModalVisible={setIsModalVisible}  />
+        </Modal>
         <Row gutter={[24, 0]}>
           <Col xs="24" xl={24}>
             <Card
@@ -185,8 +207,8 @@ function Products() {
               extra={
                 <>
                   <Radio.Group onChange={onChange} defaultValue="all">
-                    <Radio.Button value="all">All</Radio.Button>
-                    <Radio.Button value="online">ONLINE</Radio.Button>
+                    <Radio.Button value="all">MAN</Radio.Button>
+                    <Radio.Button value="online">WOMEN</Radio.Button>
                     <Radio.Button value="store">STORES</Radio.Button>
                   </Radio.Group>
                 </>
@@ -199,17 +221,6 @@ function Products() {
                   pagination={false}
                   className="ant-border-space"
                 />
-              </div>
-              <div className="uploadfile pb-15 shadow-none">
-                <Upload {...formProps}>
-                  <Button
-                    type="dashed"
-                    className="ant-full-box"
-                    icon={<ToTopOutlined />}
-                  >
-                    Click to add
-                  </Button>
-                </Upload>
               </div>
             </Card>
           </Col>

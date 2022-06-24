@@ -1,24 +1,25 @@
 import React from "react";
-import Header from "./components/header";
-import Footer from "./components/footer";
 import Home from "./Page/Home";
 import Payment from "./Page/payment";
 import Detail from "./Page/Detail";
+import Man from "./Page/Man";
+import Women from "./Page/Women";
 import AllProduct from "./Page/AllProduct";
 import ProductLookUp from "./Page/ProductLookUp";
 import Login from "./Page/Login";
-import SignUp from "./Page/SignUp";
+import SignUp from "./Page/SignUp/index";
+import Introduct from "./Page/introduce"
 import HomeAdmin from "./Page/HomeAdmin";
 import Tables from "./Page/Users";
 import Products from "./Page/Products";
 import Brands from "./Page/Brands";
-import Billing from "./Page/Billing";
-import Rtl from "./Page/Rtl";
+import Orders from "./Page/Orders";
 import Profile from "./Page/Profile";
 import SignUpAdmin from "./Page/SignUp";
 import SignInAdmin from "./Page/SignIn";
-import Main from "./components/layout/Main";
-import MainUser from "./components/layout/MainUser";
+import EditUser from "./Page/PostUser/Edit"
+import EditProduct from "./Page/PostProduct/Edit"
+import EditBrand from "./Page/PostBrand/Edit"
 import "react-toastify/dist/ReactToastify.css";
 import "antd/dist/antd.css";
 import "./assets/styles/main.css";
@@ -27,7 +28,6 @@ import "./App.css";
 import "./grid.css";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-
 function App() {
   return (
     <div className="App">
@@ -47,24 +47,26 @@ function App() {
         
         <div className="">
           <Switch>
-            {/* <MainUser> */}
             <Route exact path="/home" component={Home} />
             <Route path="/login" component={Login} />
             <Route path="/SignUp" component={SignUp} />
+            <Route path="/introduct" component={Introduct} />
             <Route path="/detail/:id" exact component={Detail} />
+            <Route path="/edit-user" exact component={EditUser} />
+            <Route path="/edit-product" exact component={EditProduct} />
+            <Route path="/edit-brand" exact component={EditBrand} />
             <Route path="/payment/:id" exact component={Payment} />
             <Route path="/allProduct" exact component={AllProduct} />
+            <Route path="/man" exact component={Man} />
+            <Route path="/women" exact component={Women} />
             <Route path="/productLookup" exact component={ProductLookUp} />
             <Route path="/sign-up" exact component={SignUpAdmin} />
             <Route path="/sign-in" exact component={SignInAdmin} />
-            {/* </MainUser> */}
               <Route exact path="/dashboard" component={HomeAdmin} />
               <Route exact path="/users" component={Tables} />
               <Route exact path="/products" component={Products} />
               <Route exact path="/brands" component={Brands} />
-
-              <Route exact path="/billing" component={Billing} />
-              <Route exact path="/rtl" component={Rtl} />
+              <Route exact path="/orders" component={Orders} />
               <Route exact path="/profile" component={Profile} />
               <Redirect from="*" to="/home" />
           

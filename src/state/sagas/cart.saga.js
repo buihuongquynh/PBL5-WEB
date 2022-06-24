@@ -33,7 +33,6 @@ function* Edit(action) {
   }
 }
 function* Delete(action) {
-  console.log(action.payload,"payoad")
   try {
   yield call(CartService.delete, action.payload.cart_id);
   yield toastSuccess('xóa thành công');

@@ -4,21 +4,20 @@ import {
   Card,
   Radio,
   Table,
-  Upload,
   Popconfirm,
   Button,
-  message,
-  Progress,
-  Avatar,
   Modal,
+  Avatar,
   Typography,
 } from "antd";
 import React, { useEffect, useState } from "react";
+import { Redirect, Link } from "react-router-dom";
 import Main from "../components/layout/Main";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, deleteUser } from "../state/actions";
+import PostUser from "./PostUser";
+import EditUser from "./PostUser/Edit"
 const { Title } = Typography;
-// table code start
 const columns = [
   {
     title: "NAME",
@@ -45,11 +44,24 @@ const columns = [
 ];
 function Users() {
   var data = [];
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
   const dispatch = useDispatch();
   const users = useSelector((state) => state.user.data);
   const confirm = (id) => {
     dispatch(deleteUser(id));
   };
+  const handleEdit = (element)=>{
+    localStorage.setItem("itemEdit",JSON.stringify(element))
+  }
   const onChange = (e) => dispatch(getUser({ role: e.target.value }));
   users?.forEach((element) => {
     data.push({
@@ -89,13 +101,12 @@ function Users() {
       employed: (
         <>
           <div className="ant-employed">
-            <span>{element.date_of_date}</span>
-            
-            <a onClick={() => handleEdit(element.id)}>Edit</a>
+            <span>{element.date_of_birth}</span>
+            <Link to="/edit-user" onClick={() =>handleEdit(element)}>Edit</Link>
             <Popconfirm
               placement="left"
               title="are you sure?"
-              onConfirm={() => confirm(element.id)}
+              onConfirm={() => (confirm(element.id))}
               okText="Yes"
               cancelText="No"
             >
@@ -107,20 +118,29 @@ function Users() {
     });
   });
 
-  const handleEdit = (id) => {
-    console.log(id);
-  };
   useEffect(() => {
     dispatch(getUser({ role: "all" }));
   }, []);
   return (
     <Main>
       <div className="tabled">
+        {/* <div className="flex items-center justify-end mb-5">
+          <Button onClick={() => showModal(null)}>Add New</Button>
+        </div> */}
+        <Modal
+          title="Add New"
+          footer={false}
+          visible={isModalVisible}
+          onOk={handleOk}
+          onCancel={handleCancel}
+        >
+          <PostUser setIsModalVisible={setIsModalVisible}  />
+        </Modal>
         <Row gutter={[24, 0]}>
           <Col xs="24" xl={24}>
             <Card
               bordered={false}
-              className="criclebox tablespace mb-24"
+              className="criclebox tablespace mb-5"
               title="USERS TABLE"
               extra={
                 <>
@@ -140,7 +160,6 @@ function Users() {
                 />
               </div>
             </Card>
-
           </Col>
         </Row>
       </div>

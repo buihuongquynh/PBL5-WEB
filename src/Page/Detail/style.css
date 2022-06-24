@@ -3,6 +3,24 @@ padding: 180px 100px;
 background-color: #EEEEEB;
 font-family: inherit;
 }
+.iconSend{
+    margin-left: 5px;
+    font-size: 25px !important;
+    color: #40a9ff !important;
+}
+.list_cmt{
+    padding: 10px;
+    background: white;
+    margin-top: 20px;
+}
+.list_cmt .flex{
+    align-items: center;
+}
+.list_cmt h1{
+    font-weight: 600;
+    font-size: 30px;
+    margin-right: 10px;
+}
 .Detail .detail__center{
     display: flex;
     align-items: center;

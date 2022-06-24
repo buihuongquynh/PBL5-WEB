@@ -28,10 +28,10 @@ const Header = () => {
       history.push({ pathname: `/productLookup/${e.target.value}` });
     }
   };
-  const handleLogout = () =>{
+  const handleLogout = () => {
     dispath(userLogoutPageSuccess());
-    history.push('/sign-in')
-  }
+    history.push("/sign-in");
+  };
   useEffect(() => {
     const onBodyClick = (event) => {
       if (ref.current.contains(event.target)) {
@@ -52,9 +52,9 @@ const Header = () => {
     <div className="header">
       <div className="header__left">
         <ul>
-          <li>Nam giới</li>
-          <li>Nữ giới</li>
-          <li>Về curnon</li>
+          <a href="/man">Nam giới</a>
+          <a href="/women">Nữ giới</a>
+          <a href="/introduct">Về curnon</a>
         </ul>
       </div>
       <div
@@ -102,7 +102,15 @@ const Header = () => {
             <>
               <Popover
                 placement="bottomRight"
-                content={<div style={{fontSize:'20px'}}><a>PROFILE</a><br/> <a onClick={handleLogout}>LOGOUT</a> <br/> <a href="/productLookup">Đơn hàng của bạn</a></div>}
+                content={
+                  <div style={{ fontSize: "20px" }}>
+                    <a href="/profile">PROFILE</a>
+                    <br />
+                    <a onClick={handleLogout}>LOGOUT</a> <br />
+                    <a href="/productLookup">KIỂM TRA ĐƠN HÀNG</a><br />
+                    {userDetais?.role === 1 && <a href="/dashboard">DASHBOARD</a>}
+                  </div>
+                }
                 trigger="click"
               >
                 <div className="flex items-center">

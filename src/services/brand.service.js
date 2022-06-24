@@ -16,8 +16,8 @@ class BrandService {
     const url = `brand/${id}`;
     return axiosClient.delete(url);
   }
-  static edit(id, data) {
-    const url = `brand/${id}`;
+  static edit(data) {
+    const url = `brand/${data.id}`;
     return axiosClient.put(url, {...data});
   }
 }

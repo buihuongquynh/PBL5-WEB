@@ -17,8 +17,8 @@ class ProductService {
     const url = `product/${id}`;
     return axiosClient.delete(url);
   }
-  static edit(id, data) {
-    const url = `product/${id}`;
+  static edit(data) {
+    const url = `product/${data.id}`;
     return axiosClient.put(url, {...data});
   }
 }

@@ -53,6 +53,13 @@ const actions = {
       EDIT_USER: 'EDIT_USER',
       DELETE_USER: 'DELETE_USER',
       ADD_USER: 'ADD_USER',
+
+       //COMMENT
+       GET_COMMENT: 'GET_COMMENT',
+       GET_COMMENT_SUCCESS: 'GET_COMMENT_SUCCESS',
+       EDIT_COMMENT: 'EDIT_COMMENT',
+       DELETE_COMMENT: 'DELETE_COMMENT',
+       ADD_COMMENT: 'ADD_COMMENT',
   };
   export default actions;
   

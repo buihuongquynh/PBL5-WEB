@@ -11,13 +11,12 @@ function Home() {
   const dispatch = useDispatch();
   const listProductMan = useSelector((state) => state.product.data);
   const brands = useSelector((state) => state.brand.data);
-  const categorys = ["men", "women", "jewels"];
-  console.log(brands, "brands");
+  const categorys = ["man", "women", "jewels"];
   const ChangeCategory = (value) => {
     dispatch(getProduct({ material: value }));
   };
   const ChangeBrand = (value) => {
-    dispatch(getProduct({ brands: value }));
+    dispatch(getProduct({ brand_id: value }));
   };
   useEffect(() => {
     dispatch(getProduct());
@@ -56,7 +55,6 @@ function Home() {
             </Select>
             {/* brand */}
             <Select
-              defaultValue={brands && brands[0]?.name}
               className="mr-3"
               placeholder={brands && brands[0]?.name}
               size="large"

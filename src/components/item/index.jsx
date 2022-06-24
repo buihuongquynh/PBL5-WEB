@@ -10,7 +10,6 @@ import { addCart } from "../../state/actions";
 const Item = ({ record }) => {
   const history = useHistory();
   const dispatch = useDispatch();
-  console.log(record,"record")
   const userDetais = JSON.parse(localStorage.getItem("info"));
   const handleAddCart = () => {
     const data = {

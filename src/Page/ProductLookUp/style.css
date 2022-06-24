@@ -3,3 +3,12 @@
     overflow-x: hidden;
     margin-bottom: 100px;
 }
+.status{
+    font-weight: 600;
+    color: green;
+    font-size: large;
+}
+.productLookUP .name{
+    font-size: 23px;
+    font-weight: 700;
+}

@@ -22,7 +22,7 @@
 
 }
 
-.header .anticon, .anticon-close-square{
+.anticon-close-square{
     color: black !important;
     font-size: 25px !important;
 }
@@ -35,7 +35,7 @@
     align-items: center;
     margin-bottom: 0;
 }
-.header__left li{
+.header__left a{
 margin-right: 20px;
 }
 @media (max-width: 768px) {

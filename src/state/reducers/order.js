@@ -6,7 +6,7 @@ const initialState = {
 const currency = (state = initialState, action) => {
     console.log(initialState)
     switch (action.type) {
-    case Actions.GET_DATA_MAN_SUCCESS: {
+    case Actions.GET_ORDER_SUCCESS: {
       const { payload: data } = action;
       return {
         ...state,

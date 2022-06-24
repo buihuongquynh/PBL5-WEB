@@ -3,9 +3,9 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import { toastSuccess } from '../../Helper/toastHelper';
 import OrderService from '../../services/order.service';
 import { Actions, getOrderSuccess } from '../actions';
-function* fetch() {
+function* fetch(action) {
   try {
-    const data = yield call(OrderService.list);
+    const data = yield call(OrderService.list,action.payload);
     yield put(getOrderSuccess(data));
   } catch (e) {
     console.log('get order error')
@@ -13,6 +13,7 @@ function* fetch() {
 }
 function* Add(action) {
   try {
+    console.log(action.payload,"pay")
   yield call(OrderService.add, action.payload);
   const data = yield call(OrderService.list);
   yield put(getOrderSuccess(data));
@@ -33,8 +34,8 @@ function* Edit(action) {
 }
 function* Delete(action) {
   try {
-  yield call(OrderService.delete, action.payload);
-  const data = yield call(OrderService.list);
+  yield call(OrderService.delete, action.payload.id);
+  const data = yield call(OrderService.list, action.payload);
   yield put(getOrderSuccess(data));
   yield toastSuccess('xóa thành công');
   } catch (e) {

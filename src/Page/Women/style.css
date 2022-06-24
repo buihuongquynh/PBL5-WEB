@@ -1,0 +1,29 @@
+.allSp {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  overflow-x: hidden;
+}
+.allWrap {
+  padding: 100px 40px;
+}
+.allWrap h1 {
+  text-align: center;
+
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 100px;
+  width: 100%;
+}
+.search{
+   
+}
+.ant-input{
+}
+.ant-input::placeholder{
+    color: #999 !important;
+}
+.ant-select-arrow{
+  right: 20px !important;
+}

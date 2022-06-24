@@ -14,9 +14,11 @@ import {
   Modal,
   Typography,
 } from "antd";
+import { Redirect, Link } from "react-router-dom";
 import { ToTopOutlined } from "@ant-design/icons";
 import React, { useEffect, useState } from "react";
 import Main from "../components/layout/Main";
+import PostBrand from "./PostBrand"
 import { useDispatch, useSelector } from "react-redux";
 import { getBrand, deleteBrand } from "../state/actions";
 const { Title } = Typography;
@@ -58,6 +60,16 @@ function Brands() {
   const products = useSelector((state) => state.brand.data);
   const confirm = (id) => {
     dispatch(deleteBrand(id));
+  };
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+  const handleCancel = () => {
+    setIsModalVisible(false);
   };
   const deletebtn = [
     <svg
@@ -121,23 +133,33 @@ function Brands() {
           >
             <a className="mr-5">{deletebtn}</a>
           </Popconfirm>
-          <a type="link" className="darkbtn">
-            {pencil}
-          </a>
+          <Link to="/edit-brand" className="darkbtn" onClick={() =>handleEdit(element)}>{pencil}</Link>
         </div>
       ),
     });
   });
 
-  const handleEdit = (id) => {
-    console.log(id);
-  };
+  const handleEdit = (element)=>{
+    localStorage.setItem("brandEdit",JSON.stringify(element))
+  }
   useEffect(() => {
     dispatch(getBrand());
   }, []);
   return (
     <Main>
       <div className="tabled">
+      <div className="flex items-center justify-end mb-5">
+          <Button onClick={() => showModal(null)}>Add New</Button>
+        </div>
+        <Modal
+          title="Add New"
+          footer={false}
+          visible={isModalVisible}
+          onOk={handleOk}
+          onCancel={handleCancel}
+        >
+          <PostBrand setIsModalVisible={setIsModalVisible}  />
+        </Modal>
         <Row gutter={[24, 0]}>
           <Col xs="24" xl={24}>
             <Card
@@ -147,9 +169,8 @@ function Brands() {
               extra={
                 <>
                   <Radio.Group onChange={onChange} defaultValue="all">
-                    <Radio.Button value="all">All</Radio.Button>
-                    <Radio.Button value="online">ONLINE</Radio.Button>
-                    <Radio.Button value="store">STORES</Radio.Button>
+                    <Radio.Button value="all">ORIGIN</Radio.Button>
+                    <Radio.Button value="online">NAME</Radio.Button>
                   </Radio.Group>
                 </>
               }
@@ -162,17 +183,7 @@ function Brands() {
                   className="ant-border-space"
                 />
               </div>
-              <div className="uploadfile pb-15 shadow-none">
-                <Upload {...formProps}>
-                  <Button
-                    type="dashed"
-                    className="ant-full-box"
-                    icon={<ToTopOutlined />}
-                  >
-                    Click to add
-                  </Button>
-                </Upload>
-              </div>
+              
             </Card>
           </Col>
         </Row>

@@ -1,16 +1,5 @@
-/*!
-  =========================================================
-  * Muse Ant Design Dashboard - v1.0.0
-  =========================================================
-  * Product Page: https://www.creative-tim.com/product/muse-ant-design-dashboard
-  * Copyright 2021 Creative Tim (https://www.creative-tim.com)
-  * Licensed under MIT (https://github.com/creativetimofficial/muse-ant-design-dashboard/blob/main/LICENSE.md)
-  * Coded by Creative Tim
-  =========================================================
-  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-import { useState } from "react";
 
+import { useState } from "react";
 import {
   Row,
   Col,
@@ -42,18 +31,16 @@ import convesionImg5 from "../assets/images/face-2.jpg";
 import project1 from "../assets/images/home-decor-1.jpeg";
 import project2 from "../assets/images/home-decor-2.jpeg";
 import project3 from "../assets/images/home-decor-3.jpeg";
-import Main from "../components/layout/Main";
-
+import MainUser from "../components/layout/MainUser";
 function Profile() {
   const [imageURL, setImageURL] = useState(false);
   const [, setLoading] = useState(false);
-
+  const userDetais = JSON.parse(localStorage.getItem("info"));
   const getBase64 = (img, callback) => {
     const reader = new FileReader();
     reader.addEventListener("load", () => callback(reader.result));
     reader.readAsDataURL(img);
   };
-
   const beforeUpload = (file) => {
     const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
     if (!isJpgOrPng) {
@@ -136,22 +123,22 @@ function Profile() {
 
   const project = [
     {
-      img: project1,
-      titlesub: "Project #1",
+      img: "https://curnonwatch.com/_next/image/?url=https%3A%2F%2Fshop.curnonwatch.com%2Fmedia%2Fcatalog%2Fproduct%2Fcache%2Fd96eb53c23516f6ca600411b8495131f%2F1%2F_%2F1_blue5.png&w=640&q=75",
+      titlesub: "whitesander",
       title: "Modern",
       disciption:
         "As Uber works through a huge amount of internal management turmoil.",
     },
     {
-      img: project2,
-      titlesub: "Project #2",
+      img: "https://curnonwatch.com/_next/image/?url=https%3A%2F%2Fshop.curnonwatch.com%2Fmedia%2Fcatalog%2Fproduct%2Fcache%2Fd96eb53c23516f6ca600411b8495131f%2Fm%2Fo%2Fmonsoon.png&w=640&q=75",
+      titlesub: "whitesander",
       title: "Scandinavian",
       disciption:
         "Music is something that every person has his or her own specific opinion about.",
     },
     {
-      img: project3,
-      titlesub: "Project #3",
+      img: "https://curnonwatch.com/_next/image/?url=https%3A%2F%2Fshop.curnonwatch.com%2Fmedia%2Fcatalog%2Fproduct%2Fcache%2Fd96eb53c23516f6ca600411b8495131f%2Fc%2Fh%2Fcharm.png&w=640&q=75",
+      titlesub: "whitesander",
       title: "Minimalist",
       disciption:
         "Different people have different taste, and various types of music, Zimbali Resort",
@@ -159,10 +146,12 @@ function Profile() {
   ];
 
   return (
-    <Main>
+    <MainUser>
+      <div  style={{ paddingLeft: '30px', paddingRight:'30px',paddingTop: '150px'}}
+>
       <div
         className="profile-nav-bg"
-        style={{ backgroundImage: "url(" + BgProfile + ")" }}
+        style={{ backgroundImage: "url(" + BgProfile + ")"}}
       ></div>
 
       <Card
@@ -173,9 +162,8 @@ function Profile() {
             <Col span={24} md={12} className="col-info">
               <Avatar.Group>
                 <Avatar size={74} shape="square" src={profilavatar} />
-
                 <div className="avatar-info">
-                  <h4 className="font-semibold m-0">Sarah Jacob</h4>
+                  <h4 className="font-semibold m-0">{userDetais?.name}</h4>
                   <p>CEO / Co-Founder</p>
                 </div>
               </Avatar.Group>
@@ -200,49 +188,6 @@ function Profile() {
       ></Card>
 
       <Row gutter={[24, 0]}>
-        <Col span={24} md={8} className="mb-24 ">
-          <Card
-            bordered={false}
-            className="header-solid h-full"
-            title={<h6 className="font-semibold m-0">Platform Settings</h6>}
-          >
-            <ul className="list settings-list">
-              <li>
-                <h6 className="list-header text-sm text-muted">ACCOUNT</h6>
-              </li>
-              <li>
-                <Switch defaultChecked />
-
-                <span>Email me when someone follows me</span>
-              </li>
-              <li>
-                <Switch />
-                <span>Email me when someone answers me</span>
-              </li>
-              <li>
-                <Switch defaultChecked />
-                <span>Email me when someone mentions me</span>
-              </li>
-              <li>
-                <h6 className="list-header text-sm text-muted m-0">
-                  APPLICATION
-                </h6>
-              </li>
-              <li>
-                <Switch defaultChecked />
-                <span>New launches and projects</span>
-              </li>
-              <li>
-                <Switch defaultChecked />
-                <span>Monthly product updates</span>
-              </li>
-              <li>
-                <Switch defaultChecked />
-                <span>Subscribe to newsletter</span>
-              </li>
-            </ul>
-          </Card>
-        </Col>
         <Col span={24} md={8} className="mb-24">
           <Card
             bordered={false}
@@ -261,16 +206,16 @@ function Profile() {
             <hr className="my-25" />
             <Descriptions title="Oliver Liam">
               <Descriptions.Item label="Full Name" span={3}>
-                Sarah Emily Jacob
+               {userDetais?.name}
               </Descriptions.Item>
               <Descriptions.Item label="Mobile" span={3}>
-                (44) 123 1234 123
+                {userDetais?.phone_number}
               </Descriptions.Item>
               <Descriptions.Item label="Email" span={3}>
-                sarahjacob@mail.com
+                {userDetais?.email}
               </Descriptions.Item>
               <Descriptions.Item label="Location" span={3}>
-                USA
+                Viet nam
               </Descriptions.Item>
               <Descriptions.Item label="Social" span={3}>
                 <a href="#pablo" className="mx-5 px-5">
@@ -289,7 +234,7 @@ function Profile() {
         <Col span={24} md={8} className="mb-24">
           <Card
             bordered={false}
-            title={<h6 className="font-semibold m-0">Conversations</h6>}
+            title={<h6 className="font-semibold m-0"></h6>}
             className="header-solid h-full"
             bodyStyle={{ paddingTop: 0, paddingBottom: 16 }}
           >
@@ -311,6 +256,9 @@ function Profile() {
               )}
             />
           </Card>
+        </Col>
+        <Col span={24} md={8} className="mb-24">
+          <img src="https://curnonwatch.com/_next/image/?url=%2F_next%2Fstatic%2Fmedia%2FBackground-1.b981dc6c.jpg&w=384&q=100"/>
         </Col>
       </Row>
       <Card
@@ -336,7 +284,7 @@ function Profile() {
                 <p>{p.disciption}</p>
                 <Row gutter={[6, 0]} className="card-footer">
                   <Col span={12}>
-                    <Button type="button">VIEW PROJECT</Button>
+                    <Button type="button">VIEW PRODUCT</Button>
                   </Col>
                   <Col span={12} className="text-right">
                     <Avatar.Group className="avatar-chips">
@@ -369,7 +317,8 @@ function Profile() {
           </Col>
         </Row>
       </Card>
-    </Main>
+      </div>
+    </MainUser>
   );
 }
 

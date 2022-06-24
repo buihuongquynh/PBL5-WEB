@@ -13,7 +13,7 @@ const ListItems = () => {
   useEffect(() => {
     dispatch(
       getProduct({
-        material: "men",
+        material: "man",
       })
     );
   }, []);
