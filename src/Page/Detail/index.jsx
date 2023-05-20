@@ -1,14 +1,19 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./style.css";
-import { Avatar, List, Space ,Input,Rate   } from "antd";
+import { Avatar, List, Space, Input, Rate } from "antd";
 import { getDetail, getComment, addComment } from "../../state/actions";
 import { useParams } from "react-router-dom";
 import { addCart } from "../../state/actions";
 import MainUser from "../../components/layout/MainUser";
 import "./style.css";
 import { useHistory } from "react-router-dom";
-import { StarOutlined, LikeOutlined, MessageOutlined,SendOutlined} from "@ant-design/icons";
+import {
+  StarOutlined,
+  LikeOutlined,
+  MessageOutlined,
+  SendOutlined,
+} from "@ant-design/icons";
 const IconText = ({ icon, text }) => (
   <Space>
     {React.createElement(icon)}
@@ -22,21 +27,21 @@ function Detail() {
   const dataDetail = useSelector((state) => state.getDetail.data);
   const comments = useSelector((state) => state.comment.data);
   const [rate, setValue] = useState(3);
-  const [cmt, setCmt] = useState('');
+  const [cmt, setCmt] = useState("");
   const userDetais = JSON.parse(localStorage.getItem("info"));
-  const handleSend = ()=>{
+  const handleSend = () => {
     const data = {
       product_id: param.id,
       user_id: userDetais?.id,
       cmt: cmt,
-      rate: rate
-    }
-    dispatch(addComment(data))
-    console.log(data,"dataaaaa")
-  }
+      rate: rate,
+    };
+    dispatch(addComment(data));
+    console.log(data, "dataaaaa");
+  };
   useEffect(() => {
     dispatch(getDetail(param.id));
-    dispatch(getComment({product_id: param.id}))
+    dispatch(getComment({ product_id: param.id }));
   }, []);
   const handleAddcart = () => {
     dispatch(addCart(dataDetail));
@@ -47,7 +52,7 @@ function Detail() {
         <div className="row">
           <div className="col-md-2"></div>
           <div className="col-md-4">
-            <img src={dataDetail ? dataDetail.image : null} alt="" />
+            <img src={dataDetail ? dataDetail.images : null} alt="" />
           </div>
           <div className="col-md-4">
             <div className="card">
@@ -89,70 +94,74 @@ function Detail() {
         <div className="list_cmt">
           <div className="row">
             <div className="col-lg-6">
-                  Đánh giá, nhận xét của khách hàng
-                  <div className="flex">
-                    <h1>4.9</h1>
-                    <div> <Rate value={3} /></div>
-                  </div>
-                  <p>15 đánh giá</p>
+              Đánh giá, nhận xét của khách hàng
+              <div className="flex">
+                <h1>4.9</h1>
+                <div>
+                  {" "}
+                  <Rate value={3} />
+                </div>
+              </div>
+              <p>15 đánh giá</p>
             </div>
             <div className="col-lg-6">
-              <p>Đánh giá:</p> 
+              <p>Đánh giá:</p>
               <Rate onChange={setValue} value={rate} />
-               <p>Viết bình luận</p>
+              <p>Viết bình luận</p>
               <div className="flex">
-              <Input  
-                value={cmt}
-                onChange={e => setCmt(e.target.value)}
-                placeholder="comments" />
-              <SendOutlined onClick={()=>handleSend()} className="iconSend"/>
+                <Input
+                  value={cmt}
+                  onChange={(e) => setCmt(e.target.value)}
+                  placeholder="comments"
+                />
+                <SendOutlined
+                  onClick={() => handleSend()}
+                  className="iconSend"
+                />
               </div>
-
             </div>
           </div>
-        <List
-          itemLayout="vertical"
-          size="large"
-          pagination={{
-            onChange: (page) => {
-              console.log(page);
-            },
-            pageSize: 5,
-          }}
-          dataSource={comments ? comments : []}
-          renderItem={(item) => (
-            <List.Item
-              key={item.id}
-              actions={[
-                <IconText
-                  icon={StarOutlined}
-                  text="156"
-                  key="list-vertical-star-o"
-                />,
-                <IconText
-                  icon={LikeOutlined}
-                  text="156"
-                  key="list-vertical-like-o"
-                />,
-                <IconText
-                  icon={MessageOutlined}
-                  text="2"
-                  key="list-vertical-message"
-                />,
-              ]}
-             
-            >
-              <List.Item.Meta
-                avatar={<Avatar src={item.avt} />}
-                title={<a href="">{item.username}</a>}
-                description={item.cmt}
-              />
-              {/* {item.content} */}
-            </List.Item>
-          )}
-        />
+          <List
+            itemLayout="vertical"
+            size="large"
+            pagination={{
+              onChange: (page) => {
+                console.log(page);
+              },
+              pageSize: 5,
+            }}
+            dataSource={comments ? comments : []}
+            renderItem={(item) => (
+              <List.Item
+                key={item.id}
+                actions={[
+                  <IconText
+                    icon={StarOutlined}
+                    text="156"
+                    key="list-vertical-star-o"
+                  />,
+                  <IconText
+                    icon={LikeOutlined}
+                    text="156"
+                    key="list-vertical-like-o"
+                  />,
+                  <IconText
+                    icon={MessageOutlined}
+                    text="2"
+                    key="list-vertical-message"
+                  />,
+                ]}
+              >
+                <List.Item.Meta
+                  avatar={<Avatar src={item.avt} />}
+                  title={<a href="">{item.username}</a>}
+                  description={item.cmt}
+                />
+                {/* {item.content} */}
+              </List.Item>
+            )}
+          />
         </div>
-        
       </div>
     </MainUser>
   );

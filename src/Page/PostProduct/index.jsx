@@ -1,11 +1,4 @@
-import {
-  Button,
-  Radio,
-  Form,
-  Input,
-  Select,
-  InputNumber,
-} from "antd";
+import { Button, Radio, Form, Input, Select, InputNumber } from "antd";
 import { addProduct, getBrand } from "../../state/actions";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,7 +15,7 @@ const PostProduct = ({ setIsModalVisible }) => {
     setIsModalVisible(false);
   };
   const brands = useSelector((state) => state.brand.data);
-  console.log(brands,"brand")
+  console.log(brands, "brand");
   useEffect(() => {
     dispath(getBrand());
   }, []);
@@ -53,7 +46,7 @@ const PostProduct = ({ setIsModalVisible }) => {
       </Form.Item>
       <Form.Item
         label="Image"
-        name="image"
+        name="images"
         rules={[
           {
             required: true,
@@ -64,7 +57,7 @@ const PostProduct = ({ setIsModalVisible }) => {
         <Input />
       </Form.Item>
       <Form.Item label="Price" name="price">
-      <Input />
+        <Input />
       </Form.Item>
       <Form.Item label="Discout" name="discount">
         <InputNumber />

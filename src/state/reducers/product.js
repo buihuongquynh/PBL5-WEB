@@ -1,16 +1,14 @@
-
-import { Actions } from '../actions';
+import { Actions } from "../actions";
 const initialState = {
-  data: null
+  data: null,
 };
 const currency = (state = initialState, action) => {
-    console.log(initialState)
-    switch (action.type) {
+  switch (action.type) {
     case Actions.GET_PRODUCT_SUCCESS: {
       const { payload: data } = action;
       return {
         ...state,
-        data
+        data,
       };
     }
     default:

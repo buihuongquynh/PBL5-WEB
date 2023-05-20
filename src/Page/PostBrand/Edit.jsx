@@ -8,22 +8,24 @@ const EditBrand = () => {
   const history = useHistory();
   const [form] = Form.useForm();
   const newData = JSON.parse(localStorage.getItem("brandEdit"));
-  const dispath = useDispatch();
+  const dispatch = useDispatch();
   const onFinish = (values) => {
     const dataAdd = {
       id: newData?.id,
     };
     const finalResult = Object.assign(values, dataAdd);
-    dispath(editBrand(finalResult));
+    dispatch(editBrand(finalResult));
     form.setFieldsValue(null);
     history.push("/brands");
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
+
   useEffect(() => {
     form.setFieldsValue(newData);
-  }, []);
+  }, [form, newData]);
+
   return (
     <MainUser>
       <div style={{ paddingTop: "100px" }}>
@@ -50,11 +52,11 @@ const EditBrand = () => {
               },
             ]}
           >
-            <Input  width={300}/>
+            <Input width={300} />
           </Form.Item>
           <Form.Item
-            label="Origin"
-            name="origin"
+            label="Description"
+            name="description"
             rules={[
               {
                 required: true,
@@ -62,7 +64,7 @@ const EditBrand = () => {
               },
             ]}
           >
-            <Input width={300}/>
+            <Input width={300} />
           </Form.Item>
 
           <Form.Item

@@ -1,16 +1,12 @@
-
 import {
   Row,
   Col,
   Card,
   Radio,
   Table,
-  Upload,
   Popconfirm,
   Button,
   message,
-  Progress,
-  Avatar,
   Modal,
   Typography,
 } from "antd";
@@ -18,7 +14,7 @@ import { Redirect, Link } from "react-router-dom";
 import { ToTopOutlined } from "@ant-design/icons";
 import React, { useEffect, useState } from "react";
 import Main from "../components/layout/Main";
-import PostBrand from "./PostBrand"
+import PostBrand from "./PostBrand";
 import { useDispatch, useSelector } from "react-redux";
 import { getBrand, deleteBrand } from "../state/actions";
 const { Title } = Typography;
@@ -133,22 +129,28 @@ function Brands() {
           >
             <a className="mr-5">{deletebtn}</a>
           </Popconfirm>
-          <Link to="/edit-brand" className="darkbtn" onClick={() =>handleEdit(element)}>{pencil}</Link>
+          <Link
+            to="/edit-brand"
+            className="darkbtn"
+            onClick={() => handleEdit(element)}
+          >
+            {pencil}
+          </Link>
         </div>
       ),
     });
   });
 
-  const handleEdit = (element)=>{
-    localStorage.setItem("brandEdit",JSON.stringify(element))
-  }
+  const handleEdit = (element) => {
+    localStorage.setItem("brandEdit", JSON.stringify(element));
+  };
   useEffect(() => {
     dispatch(getBrand());
   }, []);
   return (
     <Main>
       <div className="tabled">
-      <div className="flex items-center justify-end mb-5">
+        <div className="flex items-center justify-end mb-5">
           <Button onClick={() => showModal(null)}>Add New</Button>
         </div>
         <Modal
@@ -158,7 +160,7 @@ function Brands() {
           onOk={handleOk}
           onCancel={handleCancel}
         >
-          <PostBrand setIsModalVisible={setIsModalVisible}  />
+          <PostBrand setIsModalVisible={setIsModalVisible} />
         </Modal>
         <Row gutter={[24, 0]}>
           <Col xs="24" xl={24}>
@@ -169,7 +171,7 @@ function Brands() {
               extra={
                 <>
                   <Radio.Group onChange={onChange} defaultValue="all">
-                    <Radio.Button value="all">ORIGIN</Radio.Button>
+                    <Radio.Button value="all">DESCRIPTION</Radio.Button>
                     <Radio.Button value="online">NAME</Radio.Button>
                   </Radio.Group>
                 </>
@@ -183,7 +185,6 @@ function Brands() {
                   className="ant-border-space"
                 />
               </div>
-              
             </Card>
           </Col>
         </Row>

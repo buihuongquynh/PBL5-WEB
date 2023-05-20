@@ -1,17 +1,9 @@
-import {
-  Button,
-  Checkbox,
-  Radio,
-  DatePicker,
-  Form,
-  Input,
-  InputNumber,
-} from "antd";
+import { Button, Radio, DatePicker, Form, Input, InputNumber } from "antd";
 import moment from "moment";
 import { addUser } from "../../state/actions";
 import { useDispatch } from "react-redux";
-import {useEffect} from "react"
-const PostUser = ({setIsModalVisible }) => {
+
+const PostUser = ({ setIsModalVisible }) => {
   const dateFormat = "YYYY-MM-DD";
   const dispath = useDispatch();
   const onFinish = (values) => {
@@ -22,14 +14,14 @@ const PostUser = ({setIsModalVisible }) => {
     const finalResult = Object.assign(values, dataAdd);
     finalResult.date_of_birth = finalResult.date_of_birth._i;
     dispath(addUser(finalResult));
-    setIsModalVisible(false)
+    setIsModalVisible(false);
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
-  const handleCancel = ()=>{
-    setIsModalVisible(false)
-  }
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
   return (
     <Form
       name="basic"
@@ -118,9 +110,7 @@ const PostUser = ({setIsModalVisible }) => {
         <Button type="primary" htmlType="submit">
           Submit
         </Button>
-        <Button onClick={()=>handleCancel()}>
-          Cancel
-        </Button>
+        <Button onClick={() => handleCancel()}>Cancel</Button>
       </Form.Item>
     </Form>
   );

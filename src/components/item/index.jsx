@@ -1,35 +1,35 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/alt-text */
-// eslint-disable-next-line no-unused-vars
-import React, { useEffect } from "react";
+import React from "react";
 import "./style.css";
 import { useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addCart } from "../../state/actions";
 
 const Item = ({ record }) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const userDetais = JSON.parse(localStorage.getItem("info"));
+
   const handleAddCart = () => {
     const data = {
       user_id: userDetais.id,
-      product_id: record.id
-    }
+      product_id: record.id,
+    };
     dispatch(addCart(data));
   };
+
   return (
     <div className="item">
       <div className="item__center">
         <img
-          src={record.image}
+          alt="details"
+          src={record.images}
           onClick={() => {
             history.push({ pathname: `/detail/${record.id}` });
           }}
         />
-        <a onClick={handleAddCart} className="add__cart">
+        <span onClick={handleAddCart} className="add__cart">
           Thêm vào giỏ hàng
-        </a>
+        </span>
         <p
           onClick={() => {
             history.push({ pathname: `/detail/${record.id}` });

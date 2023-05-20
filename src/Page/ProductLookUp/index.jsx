@@ -11,12 +11,14 @@ const App = () => {
   const data = useSelector((state) => state.order.data);
   const history = useHistory();
   const dispatch = useDispatch();
-  const handeDelete =(id)=>{
-    dispatch(deleteOrder({
-      id: id,
-      user_id: userDetais?.id,
-    }))
-  }
+  const handeDelete = (id) => {
+    dispatch(
+      deleteOrder({
+        id: id,
+        user_id: userDetais?.id,
+      })
+    );
+  };
   useEffect(() => {
     dispatch(
       getOrder({
@@ -27,28 +29,39 @@ const App = () => {
   return (
     <MainUser>
       <div className="productLookUP container">
-        {
-          data&&
+        {data && (
           <List
-          itemLayout="horizontal"
-          dataSource={data}
-          renderItem={(item) => (
-            <List.Item
-              actions={[
-                <a onClick={()=> handeDelete(item.order)} style={{fontSize:'16px', color:'red'}} key="list-loadmore-more">Delete</a>,
-              ]}
-            >
-              <List.Item.Meta
-                avatar={<Avatar src={item?.image} />}
-                title={<a className="name" onClick={()=>history.push(`/detail/${item.id}`)}>{item.name}</a>}
-                description={<p className="price">{`${item?.price} đ`}</p>}
-              />
-               <div className="status">{item?.status}</div>
-            </List.Item>
-          )}
-        />
-        }
-
+            itemLayout="horizontal"
+            dataSource={data}
+            renderItem={(item) => (
+              <List.Item
+                actions={[
+                  <a
+                    onClick={() => handeDelete(item.order)}
+                    style={{ fontSize: "16px", color: "red" }}
+                    key="list-loadmore-more"
+                  >
+                    Delete
+                  </a>,
+                ]}
+              >
+                <List.Item.Meta
+                  avatar={<Avatar src={item?.images} />}
+                  title={
+                    <a
+                      className="name"
+                      onClick={() => history.push(`/detail/${item.id}`)}
+                    >
+                      {item.name}
+                    </a>
+                  }
+                  description={<p className="price">{`${item?.price} đ`}</p>}
+                />
+                <div className="status">{item?.status}</div>
+              </List.Item>
+            )}
+          />
+        )}
       </div>
     </MainUser>
   );

@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Redirect, Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { userLogin } from "../../state/actions";
 import "./Login.css";
-import MainUser from "../../components/layout/MainUser"
+import MainUser from "../../components/layout/MainUser";
 
 function Login() {
   const dispatch = useDispatch();
   const [user, setUser] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
   const handlerLoginUser = () => {
     dispatch(userLogin(user));
@@ -22,16 +22,15 @@ function Login() {
           <input
             type="text"
             placeholder="Email"
-            onChange={e => setUser({ ...user, email: e.target.value })}
+            onChange={(e) => setUser({ ...user, email: e.target.value })}
           />
           <input
             type="password"
             placeholder="Mật khẩu"
-            onChange={e => setUser({ ...user, password: e.target.value })}
+            onChange={(e) => setUser({ ...user, password: e.target.value })}
           />
           <div className="dn">
             <span onClick={handlerLoginUser}>Đăng nhập</span>
-
           </div>
           <p>
             <a href="a">Quên mật khẩu?</a>

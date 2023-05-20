@@ -8,7 +8,7 @@ import AllProduct from "./Page/AllProduct";
 import ProductLookUp from "./Page/ProductLookUp";
 import Login from "./Page/Login";
 import SignUp from "./Page/SignUp/index";
-import Introduct from "./Page/introduce"
+import Introduce from "./Page/introduce";
 import HomeAdmin from "./Page/HomeAdmin";
 import Tables from "./Page/Users";
 import Products from "./Page/Products";
@@ -17,17 +17,22 @@ import Orders from "./Page/Orders";
 import Profile from "./Page/Profile";
 import SignUpAdmin from "./Page/SignUp";
 import SignInAdmin from "./Page/SignIn";
-import EditUser from "./Page/PostUser/Edit"
-import EditProduct from "./Page/PostProduct/Edit"
-import EditBrand from "./Page/PostBrand/Edit"
+import EditUser from "./Page/PostUser/Edit";
+import EditProduct from "./Page/PostProduct/Edit";
+import EditBrand from "./Page/PostBrand/Edit";
 import "react-toastify/dist/ReactToastify.css";
 import "antd/dist/antd.css";
 import "./assets/styles/main.css";
 import "./assets/styles/responsive.css";
 import "./App.css";
 import "./grid.css";
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 function App() {
   return (
     <div className="App">
@@ -44,13 +49,12 @@ function App() {
         style={{ zIndex: "999999" }}
       />
       <Router basename="/">
-        
         <div className="">
           <Switch>
-            <Route exact path="/home" component={Home} />
+            <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
             <Route path="/SignUp" component={SignUp} />
-            <Route path="/introduct" component={Introduct} />
+            <Route path="/introduce" component={Introduce} />
             <Route path="/detail/:id" exact component={Detail} />
             <Route path="/edit-user" exact component={EditUser} />
             <Route path="/edit-product" exact component={EditProduct} />
@@ -62,14 +66,13 @@ function App() {
             <Route path="/productLookup" exact component={ProductLookUp} />
             <Route path="/sign-up" exact component={SignUpAdmin} />
             <Route path="/sign-in" exact component={SignInAdmin} />
-              <Route exact path="/dashboard" component={HomeAdmin} />
-              <Route exact path="/users" component={Tables} />
-              <Route exact path="/products" component={Products} />
-              <Route exact path="/brands" component={Brands} />
-              <Route exact path="/orders" component={Orders} />
-              <Route exact path="/profile" component={Profile} />
-              <Redirect from="*" to="/home" />
-          
+            <Route exact path="/dashboard" component={HomeAdmin} />
+            <Route exact path="/users" component={Tables} />
+            <Route exact path="/products" component={Products} />
+            <Route exact path="/brands" component={Brands} />
+            <Route exact path="/orders" component={Orders} />
+            <Route exact path="/profile" component={Profile} />
+            <Redirect from="*" to="/home" />
           </Switch>
         </div>
       </Router>

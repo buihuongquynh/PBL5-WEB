@@ -128,7 +128,7 @@ function Products() {
           <Avatar.Group>
             <Avatar
               className="shape-avatar"
-              src={element.image}
+              src={element.images}
               size={25}
               alt=""
             />
@@ -171,22 +171,29 @@ function Products() {
           >
             <a className="mr-5">{deletebtn}</a>
           </Popconfirm>
-          <Link className="darkbtn" to="/edit-product" onClick={() =>handleEdit(element)}> {pencil}</Link>
+          <Link
+            className="darkbtn"
+            to="/edit-product"
+            onClick={() => handleEdit(element)}
+          >
+            {" "}
+            {pencil}
+          </Link>
         </div>
       ),
     });
   });
 
-  const handleEdit = (element)=>{
-    localStorage.setItem("productEdit",JSON.stringify(element))
-  }
+  const handleEdit = (element) => {
+    localStorage.setItem("productEdit", JSON.stringify(element));
+  };
   useEffect(() => {
     dispatch(getProduct());
   }, []);
   return (
     <Main>
       <div className="tabled">
-      <div className="flex items-center justify-end mb-5">
+        <div className="flex items-center justify-end mb-5">
           <Button onClick={() => showModal()}>Add New</Button>
         </div>
         <Modal
@@ -196,7 +203,7 @@ function Products() {
           onOk={handleOk}
           onCancel={handleCancel}
         >
-          <PostProduct setIsModalVisible={setIsModalVisible}  />
+          <PostProduct setIsModalVisible={setIsModalVisible} />
         </Modal>
         <Row gutter={[24, 0]}>
           <Col xs="24" xl={24}>
