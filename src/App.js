@@ -72,7 +72,7 @@ function App() {
             <Route exact path="/brands" component={Brands} />
             <Route exact path="/orders" component={Orders} />
             <Route exact path="/profile" component={Profile} />
-            <Redirect from="*" to="/home" />
+            <Redirect from="*" to="/" />
           </Switch>
         </div>
       </Router>
