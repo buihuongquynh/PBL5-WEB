@@ -28,29 +28,29 @@ const Header = () => {
 		dispath(userLogoutPageSuccess());
 		history.push('/sign-in');
 	};
-	useEffect(() => {
-		const onBodyClick = event => {
-			if (ref.current.contains(event.target)) {
-				return;
-			}
-			setShow(false);
-			setShowSearchIcon(true);
-		};
+	// useEffect(() => {
+	// 	const onBodyClick = event => {
+	// 		if (ref.current.contains(event.target)) {
+	// 			return;
+	// 		}
+	// 		setShow(false);
+	// 		setShowSearchIcon(true);
+	// 	};
 
-		document.body.addEventListener('click', onBodyClick, { capture: true });
-		return () => {
-			document.body.removeEventListener('click', onBodyClick, {
-				capture: true,
-			});
-		};
-	}, []);
+	// 	document.body.addEventListener('click', onBodyClick, { capture: true });
+	// 	return () => {
+	// 		document.body.removeEventListener('click', onBodyClick, {
+	// 			capture: true,
+	// 		});
+	// 	};
+	// }, []);
 	return (
 		<div className="header">
 			<div className="header__left">
 				<ul>
 					<a href="/man">Nam giới</a>
 					<a href="/women">Nữ giới</a>
-					<a href="/introduct">Về ChronoLab</a>
+					{/* <a href="/introduct">Về ChronoLab</a> */}
 				</ul>
 			</div>
 			<div
@@ -62,15 +62,15 @@ const Header = () => {
 				<img style={{ width: '200px', height: '100px' }} src={Logo} alt="" />
 			</div>
 			<div className="header__rignt flex items-center">
-				<Popover placement="bottom" content={<ListMyOrder />} trigger="click">
+				{/* <Popover placement="bottom" content={<ListMyOrder />} trigger="click">
 					<div style={{ cursor: 'pointer' }} className="flex items-center">
 						<span>Giỏ hàng</span>
 						<ShoppingCartOutlined
 							style={{ color: 'black !important', fontSize: '16px' }}
 						/>
 					</div>
-				</Popover>
-				<span className="queue-demo">
+				</Popover> */}
+				{/* <span className="queue-demo">
 					{showSearchIcon && (
 						<a className="hv-icon" onClick={onClick}>
 							<SearchOutlined style={{ marginLeft: '4px', fontSize: '30px' }} />
@@ -92,7 +92,7 @@ const Header = () => {
 							/>
 						) : null}
 					</span>
-				</span>
+				</span> */}
 				<div style={{ cursor: 'pointer' }} className="flex items-center">
 					{userDetais ? (
 						<>
@@ -121,7 +121,7 @@ const Header = () => {
 							</Popover>
 						</>
 					) : (
-						<a href="/sign-in">Login</a>
+						<a href="/sign-in">Đăng nhập</a>
 					)}
 				</div>
 			</div>

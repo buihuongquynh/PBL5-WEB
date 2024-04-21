@@ -102,14 +102,6 @@ export default function SignIn() {
 								>
 									<Input placeholder="password confirmation" />
 								</Form.Item>
-								<Form.Item
-									name="remember"
-									className="aligin-center"
-									valuePropName="checked"
-								>
-									<Switch defaultChecked onChange={onChange} />
-									Remember me
-								</Form.Item>
 
 								<Form.Item>
 									<Button
@@ -128,7 +120,7 @@ export default function SignIn() {
 								</p>
 							</Form>
 						</Col>
-						<Col
+						{/* <Col
 							className="sign-img"
 							style={{ padding: 12 }}
 							xs={{ span: 24 }}
@@ -139,7 +131,7 @@ export default function SignIn() {
 								src="https://wscdn.vn/gioithieu-home-desktop.png?size=600x447&fomat=webp"
 								alt=""
 							/>
-						</Col>
+						</Col> */}
 					</Row>
 				</Content>
 			</div>
